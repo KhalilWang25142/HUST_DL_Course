@@ -1,0 +1,15 @@
+{
+    "epochs": 100,
+    "batch_size": 128,
+    "lr": 0.005,
+    "activation": "leaky_relu",
+    "hidden_num1": 512,
+    "hidden_num2": 256,
+    "l2_lambda": 0.001,
+    "seed": 20260318,
+    "data_home": "./scikit_data",
+    "log_dir": "./runs/mnist_manual_numpy\\leaky_relu\\He\\dropout_0p0\\20260320_172209",
+    "save_dir": "./outputs\\leaky_relu\\He\\dropout_0p0\\20260320_172209",
+    "method": "He",
+    "dropout_rate": 0.0
+}

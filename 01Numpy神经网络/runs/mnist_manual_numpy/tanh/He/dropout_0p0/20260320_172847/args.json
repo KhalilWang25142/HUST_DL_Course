@@ -1,0 +1,15 @@
+{
+    "epochs": 100,
+    "batch_size": 32,
+    "lr": 0.02,
+    "activation": "tanh",
+    "hidden_num1": 128,
+    "hidden_num2": null,
+    "l2_lambda": 0,
+    "seed": 20260318,
+    "data_home": "./scikit_data",
+    "log_dir": "./runs/mnist_manual_numpy\\tanh\\He\\dropout_0p0\\20260320_172847",
+    "save_dir": "./outputs\\tanh\\He\\dropout_0p0\\20260320_172847",
+    "method": "He",
+    "dropout_rate": 0.0
+}
