@@ -1,0 +1,11 @@
+{
+  "run_name": "voc2007_faster_rcnn_20260418_200430",
+  "timestamp": "20260418_200430",
+  "dataset": "voc2007",
+  "model": "faster_rcnn",
+  "epochs": 10,
+  "device": "cuda",
+  "pretrained": true,
+  "classes": 20,
+  "split_note": "official VOC2007 splits"
+}

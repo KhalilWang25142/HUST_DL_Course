@@ -8,10 +8,11 @@ from utils import *
 # 1. 使用sklearn加载数据集
 class sklearnDataLoader():
 
-    def __init__(self, data_home = "./scikit_data"):
+    def __init__(self, data_home = "./scikit_data", seed=20260318):
         self.data_home = data_home
         self.train_rate = 0.8
         self.test_rate = 0.2
+        self.seed = seed
 
     def Load(self):
 
@@ -23,9 +24,9 @@ class sklearnDataLoader():
         MNIST.data = MNIST.data.astype(np.float32) / 255
 
         # 3. 随机打乱顺序，对标签做One-hot编码
-        np.random.seed(20260317)
+        rng = np.random.default_rng(self.seed)
         indices = np.arange(len(MNIST.data))
-        np.random.shuffle(indices)
+        rng.shuffle(indices)
 
         MNIST.data = MNIST.data[indices]
         MNIST.target = MNIST.target[indices]

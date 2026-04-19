@@ -1,0 +1,44 @@
+{
+  "os":  "Windows-11-10.0.26200-SP0",
+  "python":  "CPython 3.13.5",
+  "startedAt":  "2026-04-14T13:59:51.668024Z",
+  "args":  [
+    "--epochs",
+    "1",
+    "--batch_size",
+    "256",
+    "--wandb_mode",
+    "online"
+  ],
+  "program":  "D:\\study\\02硕士\\课程\\06深度学习\\HUST_DL_Course\\01Numpy神经网络\\train.py",
+  "codePath":  "train.py",
+  "codePathLocal":  "train.py",
+  "email":  "wang2514289689@gmail.com",
+  "root":  "./runs/mnist_manual_numpy\\relu\\He\\dropout_0p0\\20260414_215946_401139",
+  "host":  "Razer16-WZP",
+  "executable":  "D:\\tools\\anaconda3\\python.exe",
+  "cpu_count":  12,
+  "cpu_count_logical":  24,
+  "gpu":  "NVIDIA GeForce RTX 5090 Laptop GPU",
+  "gpu_count":  1,
+  "disk":  {
+    "/":  {
+      "total":  "429496725504",
+      "used":  "218829705216"
+    }
+  },
+  "memory":  {
+    "total":  "33412730880"
+  },
+  "gpu_nvidia":  [
+    {
+      "name":  "NVIDIA GeForce RTX 5090 Laptop GPU",
+      "memoryTotal":  "25651314688",
+      "cudaCores":  10496,
+      "architecture":  "Blackwell",
+      "uuid":  "GPU-bfdacefd-7f3a-ee61-4081-5dafe6c8c9f8"
+    }
+  ],
+  "cudaVersion":  "13.2",
+  "writerId":  "e4bhrid988kikbe1p61ssench38qs0m9"
+}

@@ -1,21 +1,18 @@
-import os
 import argparse
-import numpy as np
-import matplotlib.pyplot as plt
-from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
-from model import *
 from datetime import datetime
 import json
+import os
 
-try:
-    from torch.utils.tensorboard import SummaryWriter
-except ImportError:
-    SummaryWriter = None
+import matplotlib.pyplot as plt
+import numpy as np
+from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
+import wandb
 
 
 def onehot(y, num_classes=10):
     y = np.asarray(y, dtype=np.int64)
     return np.eye(num_classes, dtype=np.float32)[y]
+
 
 def accuracy(y_pred, y_true):
     y_pred = np.asarray(y_pred)
@@ -28,7 +25,7 @@ def accuracy(y_pred, y_true):
 
     return float(np.mean(y_pred == y_true))
 
-# 按batch_size划分为多个batch并通过yield调用
+
 def iterate_batch(X, y, batch_size=64, shuffle=True):
     n_samples = X.shape[0]
     indices = np.arange(n_samples)
@@ -41,73 +38,141 @@ def iterate_batch(X, y, batch_size=64, shuffle=True):
         batch_idx = indices[start:end]
         yield X[batch_idx], y[batch_idx]
 
+
 def make_dir(path):
     os.makedirs(path, exist_ok=True)
 
-def build_args():
-    p = argparse.ArgumentParser()
 
-    p.add_argument("--epochs", type=int, default=10)
-    p.add_argument("--batch_size", type=int, default=32)
-    p.add_argument("--lr", type=float, default=0.02)
-    p.add_argument("--activation", type=str, default="relu",
-                   choices=["relu", "tanh", "sigmoid", "leaky_relu"])
-    p.add_argument("--hidden_num1", type=int, default=256)
-    p.add_argument("--hidden_num2", type=int, default=128)
+def set_random_seed(seed):
+    np.random.seed(seed)
 
-    p.add_argument("--l2_lambda", type=float, default=0)
 
-    p.add_argument("--seed", type=int, default=20260318)
-    p.add_argument("--data_home", type=str, default="./scikit_data")
-    p.add_argument("--log_dir", type=str, default="./runs/mnist_manual_numpy")
-    p.add_argument("--save_dir", type=str, default="./outputs")
-    p.add_argument("--method", type=str, default="He",
-                   choices=["norm", "Xavier", "He"])
-    p.add_argument("--dropout_rate", type=float, default=0.0)
+def build_parser():
+    parser = argparse.ArgumentParser()
 
-    # 调节保存文件地址
-    args = p.parse_args()
+    parser.add_argument("--epochs", type=int, default=10)
+    parser.add_argument("--batch_size", type=int, default=32)
+    parser.add_argument("--lr", type=float, default=0.02)
+    parser.add_argument(
+        "--activation",
+        type=str,
+        default="relu",
+        choices=["relu", "tanh", "sigmoid", "leaky_relu"],
+    )
+    parser.add_argument("--hidden_num1", type=int, default=256)
+    parser.add_argument("--hidden_num2", type=int, default=128)
+    parser.add_argument("--l2_lambda", type=float, default=0.0)
+    parser.add_argument("--seed", type=int, default=20260318)
+    parser.add_argument("--data_home", type=str, default="./scikit_data")
+    parser.add_argument("--log_dir", type=str, default="./runs/mnist_manual_numpy")
+    parser.add_argument("--save_dir", type=str, default="./outputs")
+    parser.add_argument(
+        "--method",
+        type=str,
+        default="He",
+        choices=["norm", "Xavier", "He"],
+    )
+    parser.add_argument("--dropout_rate", type=float, default=0.0)
+    parser.add_argument(
+        "--wandb_mode",
+        type=str,
+        default="offline",
+        choices=["offline", "online", "disabled"],
+    )
 
-    # 系统时间
-    time_str = datetime.now().strftime("%Y%m%d_%H%M%S")
+    return parser
 
-    # 避免路径里出现小数点
+
+def finalize_run_paths(args, timestamp=None):
+    if getattr(args, "_paths_finalized", False):
+        return args
+
+    if timestamp is None:
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S_%f")
+
     dropout_str = str(args.dropout_rate).replace(".", "p")
-
-    # activation / method / dropout_rate / time
     suffix = os.path.join(
         args.activation,
         args.method,
         f"dropout_{dropout_str}",
-        time_str
+        timestamp,
     )
 
+    args.run_suffix = suffix
     args.log_dir = os.path.join(args.log_dir, suffix)
     args.save_dir = os.path.join(args.save_dir, suffix)
-
+    args._paths_finalized = True
     return args
 
+
+def build_args(argv=None):
+    parser = build_parser()
+    args = parser.parse_args(argv)
+    return finalize_run_paths(args)
+
+
+def args_to_dict(args):
+    return {key: value for key, value in vars(args).items() if not key.startswith("_")}
+
+
 def save_args_to_json(args, filename="args.json"):
-    os.makedirs(args.log_dir, exist_ok=True)
+    make_dir(args.log_dir)
     save_path = os.path.join(args.log_dir, filename)
-    with open(save_path, "w", encoding="utf-8") as f:
-        json.dump(vars(args), f, indent=4, ensure_ascii=False)
+    with open(save_path, "w", encoding="utf-8") as file:
+        json.dump(args_to_dict(args), file, indent=4, ensure_ascii=False)
 
-def create_summary_writer(log_dir):
-    make_dir(log_dir)
-    if SummaryWriter is None:
-        print("Warning: tensorboardX not found, TensorBoard logging skipped.")
-        return None
-    return SummaryWriter(log_dir=log_dir)
 
-def close_summary_writer(writer):
-    if writer is not None:
-        writer.flush()
-        writer.close()
+def init_wandb_run(args):
+    make_dir(args.log_dir)
+    run_name = os.path.basename(args.log_dir.rstrip(os.sep)) or "mnist_manual_numpy"
+    return wandb.init(
+        project="mnist_manual_numpy",
+        name=run_name,
+        dir=args.log_dir,
+        config=args_to_dict(args),
+        mode=args.wandb_mode,
+    )
+
+
+def finish_wandb_run(run):
+    if run is not None:
+        run.finish()
+
+
+def build_wandb_image_payload(X, y_true, y_pred, max_show=10):
+    X = np.asarray(X)
+    y_true = np.asarray(y_true)
+    y_pred = np.asarray(y_pred)
+
+    if y_true.ndim > 1:
+        y_true_label = np.argmax(y_true, axis=1)
+    else:
+        y_true_label = y_true
+
+    if y_pred.ndim > 1:
+        y_pred_label = np.argmax(y_pred, axis=1)
+    else:
+        y_pred_label = y_pred
+
+    images = []
+    max_items = min(max_show, len(X))
+    for idx in range(max_items):
+        images.append(
+            wandb.Image(
+                X[idx].reshape(28, 28),
+                caption=(
+                    f"idx={idx} "
+                    f"true={int(y_true_label[idx])} "
+                    f"pred={int(y_pred_label[idx])} "
+                    f"correct={bool(y_true_label[idx] == y_pred_label[idx])}"
+                ),
+            )
+        )
+    return images
+
 
 def plot_training_history(history, save_path):
     make_dir(os.path.dirname(save_path))
-
     epochs = np.arange(1, len(history["train_loss"]) + 1)
 
     plt.figure(figsize=(12, 5))
@@ -122,10 +187,11 @@ def plot_training_history(history, save_path):
     plt.grid(True, linestyle="--", alpha=0.4)
 
     plt.subplot(1, 2, 2)
+    plt.plot(epochs, history["train_acc"], label="Train Accuracy")
     plt.plot(epochs, history["val_acc"], label="Val Accuracy")
     plt.xlabel("Epoch")
     plt.ylabel("Accuracy")
-    plt.title("Validation Accuracy Curve")
+    plt.title("Accuracy Curve")
     plt.legend()
     plt.grid(True, linestyle="--", alpha=0.4)
 
@@ -188,7 +254,6 @@ def save_misclassified_examples(X, y_true, y_pred, save_path, max_show=25):
         return
 
     wrong_idx = wrong_idx[:max_show]
-
     cols = 5
     rows = int(np.ceil(len(wrong_idx) / cols))
 

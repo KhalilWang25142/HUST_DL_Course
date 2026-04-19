@@ -1,0 +1,2 @@
+"""Detection model adapters."""
+

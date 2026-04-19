@@ -1,0 +1,11 @@
+{
+  "run_name": "coco128_yolov8_20260419_010213",
+  "timestamp": "20260419_010213",
+  "dataset": "coco128",
+  "model": "yolov8",
+  "epochs": 100,
+  "device": "cuda",
+  "pretrained": true,
+  "classes": 80,
+  "split_note": "official coco128 train/val share the same images"
+}

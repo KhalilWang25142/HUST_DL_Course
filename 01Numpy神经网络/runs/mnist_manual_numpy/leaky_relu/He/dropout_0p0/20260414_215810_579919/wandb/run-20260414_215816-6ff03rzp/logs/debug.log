@@ -1,0 +1,25 @@
+2026-04-14 21:58:16,152 INFO    MainThread:16884 [wandb_setup.py:_flush():81] Current SDK version is 0.26.0
+2026-04-14 21:58:16,152 INFO    MainThread:16884 [wandb_setup.py:_flush():81] Configure stats pid to 16884
+2026-04-14 21:58:16,152 INFO    MainThread:16884 [wandb_setup.py:_flush():81] Loading settings from environment variables
+2026-04-14 21:58:16,152 INFO    MainThread:16884 [wandb_init.py:setup_run_log_directory():721] Logging user logs to runs\mnist_manual_numpy\leaky_relu\He\dropout_0p0\20260414_215810_579919\wandb\run-20260414_215816-6ff03rzp\logs\debug.log
+2026-04-14 21:58:16,153 INFO    MainThread:16884 [wandb_init.py:setup_run_log_directory():722] Logging internal logs to runs\mnist_manual_numpy\leaky_relu\He\dropout_0p0\20260414_215810_579919\wandb\run-20260414_215816-6ff03rzp\logs\debug-internal.log
+2026-04-14 21:58:16,153 INFO    MainThread:16884 [wandb_init.py:init():848] calling init triggers
+2026-04-14 21:58:16,153 INFO    MainThread:16884 [wandb_init.py:init():853] wandb.init called with sweep_config: {'activation': 'leaky_relu', 'batch_size': 128, 'dropout_rate': 0, 'epochs': 10, 'hidden_num1': 256, 'hidden_num2': 128, 'l2_lambda': 0.001, 'lr': 0.010905161004265014, 'method': 'He', 'seed': 20260318}
+config: {'epochs': 10, 'batch_size': 128, 'lr': 0.010905161004265014, 'activation': 'leaky_relu', 'hidden_num1': 256, 'hidden_num2': 128, 'l2_lambda': 0.001, 'seed': 20260318, 'data_home': './scikit_data', 'log_dir': './runs/mnist_manual_numpy\\leaky_relu\\He\\dropout_0p0\\20260414_215810_579919', 'save_dir': './outputs\\leaky_relu\\He\\dropout_0p0\\20260414_215810_579919', 'method': 'He', 'dropout_rate': 0.0, 'wandb_mode': 'online', 'run_suffix': 'leaky_relu\\He\\dropout_0p0\\20260414_215810_579919', '_wandb': {}}
+2026-04-14 21:58:16,153 INFO    MainThread:16884 [wandb_init.py:init():896] starting backend
+2026-04-14 21:58:16,488 INFO    MainThread:16884 [wandb_init.py:init():911] sending inform_init request
+2026-04-14 21:58:16,562 INFO    MainThread:16884 [wandb_init.py:init():919] backend started and connected
+2026-04-14 21:58:16,564 INFO    MainThread:16884 [wandb_run.py:_config_callback():1403] config_cb None None {'activation': 'leaky_relu', 'batch_size': 128, 'dropout_rate': 0, 'epochs': 10, 'hidden_num1': 256, 'hidden_num2': 128, 'l2_lambda': 0.001, 'lr': 0.010905161004265014, 'method': 'He', 'seed': 20260318}
+2026-04-14 21:58:16,564 INFO    MainThread:16884 [wandb_init.py:init():989] updated telemetry
+2026-04-14 21:58:16,570 INFO    MainThread:16884 [wandb_init.py:init():1013] communicating run to backend with 90.0 second timeout
+2026-04-14 21:58:19,136 INFO    MainThread:16884 [wandb_init.py:init():1058] starting run threads in backend
+2026-04-14 21:58:19,562 INFO    MainThread:16884 [wandb_run.py:_console_start():2542] atexit reg
+2026-04-14 21:58:19,563 INFO    MainThread:16884 [wandb_run.py:_redirect():2391] redirect: wrap_raw
+2026-04-14 21:58:19,563 INFO    MainThread:16884 [wandb_run.py:_redirect():2460] Wrapping output streams.
+2026-04-14 21:58:19,563 INFO    MainThread:16884 [wandb_run.py:_redirect():2483] Redirects installed.
+2026-04-14 21:58:19,569 INFO    MainThread:16884 [wandb_init.py:init():1098] run started, returning control to user process
+2026-04-14 21:58:30,813 INFO    MainThread:16884 [wandb_run.py:_finish():2309] finishing run khalil25142-huazhong-university-of-science-and-technology/mnist_manual_numpy/6ff03rzp
+2026-04-14 21:58:30,813 INFO    MainThread:16884 [wandb_run.py:_atexit_cleanup():2508] got exitcode: 0
+2026-04-14 21:58:30,814 INFO    MainThread:16884 [wandb_run.py:_restore():2490] restore
+2026-04-14 21:58:30,815 INFO    MainThread:16884 [wandb_run.py:_restore():2496] restore done
+2026-04-14 21:58:33,822 INFO    MainThread:16884 [wandb_run.py:_footer_sync_info():3886] logging synced files

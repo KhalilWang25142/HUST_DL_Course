@@ -1,0 +1,17 @@
+{
+    "epochs": 1,
+    "batch_size": 256,
+    "lr": 0.02,
+    "activation": "relu",
+    "hidden_num1": 256,
+    "hidden_num2": 128,
+    "l2_lambda": 0.0,
+    "seed": 20260318,
+    "data_home": "./scikit_data",
+    "log_dir": "./runs/mnist_manual_numpy\\relu\\He\\dropout_0p0\\20260414_215927_886673",
+    "save_dir": "./outputs\\relu\\He\\dropout_0p0\\20260414_215927_886673",
+    "method": "He",
+    "dropout_rate": 0.0,
+    "wandb_mode": "offline",
+    "run_suffix": "relu\\He\\dropout_0p0\\20260414_215927_886673"
+}

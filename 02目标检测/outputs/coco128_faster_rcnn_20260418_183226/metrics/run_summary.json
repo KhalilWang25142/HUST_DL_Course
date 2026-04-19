@@ -1,0 +1,11 @@
+{
+  "run_name": "coco128_faster_rcnn_20260418_183226",
+  "timestamp": "20260418_183226",
+  "dataset": "coco128",
+  "model": "faster_rcnn",
+  "epochs": 100,
+  "device": "cuda",
+  "pretrained": true,
+  "classes": 80,
+  "split_note": "official coco128 train/val share the same images"
+}

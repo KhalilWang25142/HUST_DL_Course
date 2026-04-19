@@ -1,0 +1,1 @@
+Epoch [001/001] train_loss=1.126151  train_acc=0.7276  val_loss=0.548383  val_acc=0.8644  best_val_acc=0.8644

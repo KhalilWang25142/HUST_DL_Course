@@ -1,0 +1,16 @@
+2026-04-14 22:00:37 INFO Running runs: []
+2026-04-14 22:00:38 INFO Agent received command: run
+2026-04-14 22:00:38 INFO Agent starting run with config:
+	activation: relu
+	batch_size: 64
+	dropout_rate: 0
+	epochs: 10
+	hidden_num1: 256
+	hidden_num2: 128
+	l2_lambda: 0.001
+	lr: 0.043553196347783714
+	method: He
+	seed: 20260318
+2026-04-14 22:00:38 INFO About to run command: python train.py --wandb_mode online --activation=relu --batch_size=64 --dropout_rate=0 --epochs=10 --hidden_num1=256 --hidden_num2=128 --l2_lambda=0.001 --lr=0.043553196347783714 --method=He --seed=20260318
+2026-04-14 22:00:43 INFO Running runs: ['x4a79yl8']
+2026-04-14 22:01:11 INFO Cleaning up finished run: x4a79yl8

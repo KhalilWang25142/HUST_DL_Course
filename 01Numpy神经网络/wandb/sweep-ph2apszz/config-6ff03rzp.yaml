@@ -1,0 +1,22 @@
+wandb_version: 1
+
+activation:
+  value: leaky_relu
+batch_size:
+  value: 128
+dropout_rate:
+  value: 0
+epochs:
+  value: 10
+hidden_num1:
+  value: 256
+hidden_num2:
+  value: 128
+l2_lambda:
+  value: 0.001
+lr:
+  value: 0.010905161004265014
+method:
+  value: He
+seed:
+  value: 20260318

@@ -1,0 +1,37 @@
+program: train.py
+name: mnist_accuracy_bayes
+project: mnist_manual_numpy
+method: bayes
+metric:
+  name: best_val_acc
+  goal: maximize
+command:
+  - ${env}
+  - ${interpreter}
+  - ${program}
+  - --wandb_mode
+  - online
+  - ${args}
+parameters:
+  epochs:
+    value: 10
+  hidden_num1:
+    value: 256
+  hidden_num2:
+    value: 128
+  method:
+    value: He
+  seed:
+    value: 20260318
+  lr:
+    distribution: log_uniform_values
+    min: 0.001
+    max: 0.05
+  batch_size:
+    values: [64, 128, 256]
+  activation:
+    values: [relu, leaky_relu]
+  dropout_rate:
+    values: [0.0, 0.1, 0.2]
+  l2_lambda:
+    values: [0.0, 0.00001, 0.0001, 0.001]

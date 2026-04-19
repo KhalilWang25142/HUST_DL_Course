@@ -1,0 +1,102 @@
+_wandb:
+    value:
+        cli_version: 0.26.0
+        e:
+            bl9c0ah720yi110ih292ewowqo649cgi:
+                args:
+                    - --wandb_mode
+                    - online
+                    - --activation=leaky_relu
+                    - --batch_size=128
+                    - --dropout_rate=0
+                    - --epochs=10
+                    - --hidden_num1=256
+                    - --hidden_num2=128
+                    - --l2_lambda=0.001
+                    - --lr=0.010905161004265014
+                    - --method=He
+                    - --seed=20260318
+                codePath: train.py
+                codePathLocal: train.py
+                cpu_count: 12
+                cpu_count_logical: 24
+                cudaVersion: "13.2"
+                disk:
+                    /:
+                        total: "429496725504"
+                        used: "218828152832"
+                email: wang2514289689@gmail.com
+                executable: D:\tools\anaconda3\python.exe
+                gpu: NVIDIA GeForce RTX 5090 Laptop GPU
+                gpu_count: 1
+                gpu_nvidia:
+                    - architecture: Blackwell
+                      cudaCores: 10496
+                      memoryTotal: "25651314688"
+                      name: NVIDIA GeForce RTX 5090 Laptop GPU
+                      uuid: GPU-bfdacefd-7f3a-ee61-4081-5dafe6c8c9f8
+                host: Razer16-WZP
+                memory:
+                    total: "33412730880"
+                os: Windows-11-10.0.26200-SP0
+                program: D:\study\02硕士\课程\06深度学习\HUST_DL_Course\01Numpy神经网络\train.py
+                python: CPython 3.13.5
+                root: ./runs/mnist_manual_numpy\leaky_relu\He\dropout_0p0\20260414_215810_579919
+                startedAt: "2026-04-14T13:58:16.123179Z"
+                writerId: bl9c0ah720yi110ih292ewowqo649cgi
+        m: []
+        python_version: 3.13.5
+        t:
+            "1":
+                - 1
+                - 5
+                - 53
+            "2":
+                - 1
+                - 5
+                - 53
+            "3":
+                - 2
+                - 13
+                - 14
+                - 16
+                - 61
+                - 62
+            "4": 3.13.5
+            "5": 0.26.0
+            "8":
+                - 3
+            "10":
+                - 20
+            "12": 0.26.0
+            "13": windows-amd64
+activation:
+    value: leaky_relu
+batch_size:
+    value: 128
+data_home:
+    value: ./scikit_data
+dropout_rate:
+    value: 0
+epochs:
+    value: 10
+hidden_num1:
+    value: 256
+hidden_num2:
+    value: 128
+l2_lambda:
+    value: 0.001
+log_dir:
+    value: ./runs/mnist_manual_numpy\leaky_relu\He\dropout_0p0\20260414_215810_579919
+lr:
+    value: 0.010905161004265014
+method:
+    value: He
+run_suffix:
+    value: leaky_relu\He\dropout_0p0\20260414_215810_579919
+save_dir:
+    value: ./outputs\leaky_relu\He\dropout_0p0\20260414_215810_579919
+seed:
+    value: 20260318
+wandb_mode:
+    value: online

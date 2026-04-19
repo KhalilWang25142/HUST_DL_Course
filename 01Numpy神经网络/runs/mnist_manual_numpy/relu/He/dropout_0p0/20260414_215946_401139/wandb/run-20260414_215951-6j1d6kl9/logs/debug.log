@@ -1,0 +1,24 @@
+2026-04-14 21:59:51,672 INFO    MainThread:3768 [wandb_setup.py:_flush():81] Current SDK version is 0.26.0
+2026-04-14 21:59:51,672 INFO    MainThread:3768 [wandb_setup.py:_flush():81] Configure stats pid to 3768
+2026-04-14 21:59:51,673 INFO    MainThread:3768 [wandb_setup.py:_flush():81] Loading settings from environment variables
+2026-04-14 21:59:51,673 INFO    MainThread:3768 [wandb_init.py:setup_run_log_directory():721] Logging user logs to runs\mnist_manual_numpy\relu\He\dropout_0p0\20260414_215946_401139\wandb\run-20260414_215951-6j1d6kl9\logs\debug.log
+2026-04-14 21:59:51,673 INFO    MainThread:3768 [wandb_init.py:setup_run_log_directory():722] Logging internal logs to runs\mnist_manual_numpy\relu\He\dropout_0p0\20260414_215946_401139\wandb\run-20260414_215951-6j1d6kl9\logs\debug-internal.log
+2026-04-14 21:59:51,682 INFO    MainThread:3768 [wandb_init.py:init():848] calling init triggers
+2026-04-14 21:59:51,682 INFO    MainThread:3768 [wandb_init.py:init():853] wandb.init called with sweep_config: {}
+config: {'epochs': 1, 'batch_size': 256, 'lr': 0.02, 'activation': 'relu', 'hidden_num1': 256, 'hidden_num2': 128, 'l2_lambda': 0.0, 'seed': 20260318, 'data_home': './scikit_data', 'log_dir': './runs/mnist_manual_numpy\\relu\\He\\dropout_0p0\\20260414_215946_401139', 'save_dir': './outputs\\relu\\He\\dropout_0p0\\20260414_215946_401139', 'method': 'He', 'dropout_rate': 0.0, 'wandb_mode': 'online', 'run_suffix': 'relu\\He\\dropout_0p0\\20260414_215946_401139', '_wandb': {}}
+2026-04-14 21:59:51,682 INFO    MainThread:3768 [wandb_init.py:init():896] starting backend
+2026-04-14 21:59:52,014 INFO    MainThread:3768 [wandb_init.py:init():911] sending inform_init request
+2026-04-14 21:59:52,101 INFO    MainThread:3768 [wandb_init.py:init():919] backend started and connected
+2026-04-14 21:59:52,127 INFO    MainThread:3768 [wandb_init.py:init():989] updated telemetry
+2026-04-14 21:59:52,132 INFO    MainThread:3768 [wandb_init.py:init():1013] communicating run to backend with 90.0 second timeout
+2026-04-14 21:59:54,534 INFO    MainThread:3768 [wandb_init.py:init():1058] starting run threads in backend
+2026-04-14 21:59:54,945 INFO    MainThread:3768 [wandb_run.py:_console_start():2542] atexit reg
+2026-04-14 21:59:54,945 INFO    MainThread:3768 [wandb_run.py:_redirect():2391] redirect: wrap_raw
+2026-04-14 21:59:54,945 INFO    MainThread:3768 [wandb_run.py:_redirect():2460] Wrapping output streams.
+2026-04-14 21:59:54,946 INFO    MainThread:3768 [wandb_run.py:_redirect():2483] Redirects installed.
+2026-04-14 21:59:54,953 INFO    MainThread:3768 [wandb_init.py:init():1098] run started, returning control to user process
+2026-04-14 21:59:58,933 INFO    MainThread:3768 [wandb_run.py:_finish():2309] finishing run khalil25142-huazhong-university-of-science-and-technology/mnist_manual_numpy/6j1d6kl9
+2026-04-14 21:59:58,934 INFO    MainThread:3768 [wandb_run.py:_atexit_cleanup():2508] got exitcode: 0
+2026-04-14 21:59:58,935 INFO    MainThread:3768 [wandb_run.py:_restore():2490] restore
+2026-04-14 21:59:58,935 INFO    MainThread:3768 [wandb_run.py:_restore():2496] restore done
+2026-04-14 22:00:04,231 INFO    MainThread:3768 [wandb_run.py:_footer_sync_info():3886] logging synced files
