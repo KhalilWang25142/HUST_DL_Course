@@ -1,0 +1,254 @@
+===== Configuration =====
+dataset_name: mvtec_ad
+data_path: ./data/mvtec/
+class_name: ALL
+img_resize: 512
+divide_num: 1
+backbone_name: mobilevit_s
+pretrained: openai
+batch_size: 4
+feature_layers: [0, 1]
+r_list: [1, 3, 5]
+device: 1
+output_dir: output
+vis: Ture
+vis_type: single_norm
+save_excel: False
+===========backbone_info=============
+mobilevit_s
+[mobilevit_s] params(M): total=4.94M trainable=4.94M
+odict_keys(['stem', 'stages_0', 'stages_1', 'stages_2', 'stages_3', 'stages_4', 'final_conv'])
+[mobilevit_s] params_only_feature(M): 4.83M (up to 'stages_4')
+[mobilevit_s] FLOPs_feature(G): 10.24G (up to 'stages_4')
+===== FeatureExtractor layers =====
+FeatureExtractor layers: ['stages_2', 'stages_3', 'stages_4']
+Updated features_list to: [1, 2, 3]
+===========start_MuSc=============
+bottle
+subset_num: 83
+extract time: 62.2584446367011ms per image
+feature extract only backbone time: 4.430130303624165ms per image
+LNAMD time: 24.447691009705327ms
+MSM time: 451.02581345891383ms
+MuSc: 544.6467744298728ms per image
+computing metrics...
+bottle
+image-level, auroc:77.38095238095238, f1:88.1118881118881, ap:90.8065382630835
+pixel-level, auroc:84.74148970730843, f1:38.20107234956963, ap:36.139878137673556, aupro:56.84928876290031
+visualization...
+cable
+subset_num: 150
+extract time: 79.44140275319417ms per image
+feature extract only backbone time: 4.280877113342285ms per image
+LNAMD time: 44.28557432320223ms
+MSM time: 1265.8275445685329ms
+MuSc: 919.4802284240723ms per image
+computing metrics...
+cable
+image-level, auroc:71.51424287856072, f1:79.81220657276995, ap:77.41140034029442
+pixel-level, auroc:45.43365645524035, f1:6.5286376882324415, ap:3.0574878879200953, aupro:33.03515882212317
+visualization...
+capsule
+subset_num: 132
+extract time: 106.04806379838423ms per image
+feature extract only backbone time: 4.107505986184785ms per image
+LNAMD time: 62.69138025776145ms
+MSM time: 1982.0305983608507ms
+MuSc: 846.3699889905525ms per image
+computing metrics...
+capsule
+image-level, auroc:62.544874351814926, f1:90.45643153526972, ap:87.19514120151295
+pixel-level, auroc:89.9498415812911, f1:33.06923054096561, ap:22.11060968815417, aupro:77.23212905918516
+visualization...
+carpet
+subset_num: 117
+extract time: 104.29780707400069ms per image
+feature extract only backbone time: 4.220740407960028ms per image
+LNAMD time: 79.86988107717146ms
+MSM time: 2615.069779409904ms
+MuSc: 759.990602476984ms per image
+computing metrics...
+carpet
+image-level, auroc:41.53290529695024, f1:86.40776699029125, ap:75.24806757345277
+pixel-level, auroc:81.97385660522755, f1:21.125664956209093, ap:18.145235467346172, aupro:41.10382932260412
+visualization...
+grid
+subset_num: 78
+extract time: 37.493922771551674ms per image
+feature extract only backbone time: 4.134199558160244ms per image
+LNAMD time: 95.0753193976248ms
+MSM time: 3036.7059787497465ms
+MuSc: 477.3851785904322ms per image
+computing metrics...
+grid
+image-level, auroc:45.4469507101086, f1:84.44444444444443, ap:73.57731004721578
+pixel-level, auroc:75.80960537340766, f1:7.229984885532173, ap:2.3095844133468413, aupro:33.33362708507033
+visualization...
+hazelnut
+subset_num: 110
+extract time: 56.83471939780495ms per image
+feature extract only backbone time: 3.9019216190684927ms per image
+LNAMD time: 112.72153457637458ms
+MSM time: 3631.071079176854ms
+MuSc: 673.1991377743808ms per image
+computing metrics...
+hazelnut
+image-level, auroc:85.39285714285714, f1:85.48387096774194, ap:93.3787882554477
+pixel-level, auroc:97.69490394230945, f1:62.42313425979192, ap:64.41528802064089, aupro:62.958500801962316
+visualization...
+leather
+subset_num: 124
+extract time: 54.728950223615094ms per image
+feature extract only backbone time: 3.8873841685633503ms per image
+LNAMD time: 128.76213276889717ms
+MSM time: 4301.862832053628ms
+MuSc: 745.3815840905712ms per image
+computing metrics...
+leather
+image-level, auroc:82.43885869565217, f1:86.66666666666667, ap:93.80529325905759
+pixel-level, auroc:95.35101240031325, f1:38.0240078658653, ap:27.574826437108584, aupro:70.94499081383604
+visualization...
+metal_nut
+subset_num: 115
+extract time: 41.793195061061695ms per image
+feature extract only backbone time: 4.46031611898671ms per image
+LNAMD time: 143.88153818364432ms
+MSM time: 4926.290747709676ms
+MuSc: 685.3170021720555ms per image
+computing metrics...
+metal_nut
+image-level, auroc:56.940371456500486, f1:89.85507246376811, ap:85.31715858987334
+pixel-level, auroc:88.1836382040359, f1:49.33515905657196, ap:44.441439562646075, aupro:62.18840815238617
+visualization...
+pill
+subset_num: 167
+extract time: 43.89912639549392ms per image
+feature extract only backbone time: 4.016934754605779ms per image
+LNAMD time: 159.22250741781392ms
+MSM time: 5835.321937553956ms
+MuSc: 971.5489384656895ms per image
+computing metrics...
+pill
+image-level, auroc:73.64975450081832, f1:91.55844155844156, ap:93.86862129292136
+pixel-level, auroc:79.29829341331467, f1:25.161684571190314, ap:20.73563547576031, aupro:62.91411792418518
+visualization...
+screw
+subset_num: 160
+extract time: 47.652362287044525ms per image
+feature extract only backbone time: 3.990742564201355ms per image
+LNAMD time: 175.77713424028553ms
+MSM time: 6702.791324310376ms
+MuSc: 934.56601947546ms per image
+computing metrics...
+screw
+image-level, auroc:14.306210288993649, f1:85.3046594982079, ap:56.95057929081392
+pixel-level, auroc:90.04519518520011, f1:2.917708237901414, ap:1.2012046454271663, aupro:64.36541903584926
+visualization...
+tile
+subset_num: 117
+extract time: 44.63461932972965ms per image
+feature extract only backbone time: 4.108920056595761ms per image
+LNAMD time: 192.43033575920018ms
+MSM time: 7335.7403912875925ms
+MuSc: 697.8866177746373ms per image
+computing metrics...
+tile
+image-level, auroc:53.35497835497836, f1:84.00000000000001, ap:77.07319928248589
+pixel-level, auroc:62.92628489753872, f1:23.393959242403366, ap:20.697360350235858, aupro:30.762108917594006
+visualization...
+toothbrush
+subset_num: 42
+extract time: 62.92067822955904ms per image
+feature extract only backbone time: 4.397698811122349ms per image
+LNAMD time: 207.62570547965916ms
+MSM time: 7565.324193964929ms
+MuSc: 316.08704158238004ms per image
+computing metrics...
+toothbrush
+image-level, auroc:92.77777777777779, f1:93.10344827586206, ap:97.67768742302458
+pixel-level, auroc:89.83534530891937, f1:33.48742236465216, ap:21.721989967063543, aupro:80.02650347956721
+visualization...
+transistor
+subset_num: 100
+extract time: 55.93639135360718ms per image
+feature extract only backbone time: 3.816542625427246ms per image
+LNAMD time: 223.560537575759ms
+MSM time: 8107.262472640008ms
+MuSc: 618.3990025520325ms per image
+computing metrics...
+transistor
+image-level, auroc:77.91666666666666, f1:68.96551724137932, ap:70.60446517731835
+pixel-level, auroc:71.12628457595592, f1:34.51227924365145, ap:22.201842037578853, aupro:46.770282765973526
+visualization...
+wood
+subset_num: 79
+extract time: 58.33618248565288ms per image
+feature extract only backbone time: 4.098107543172715ms per image
+LNAMD time: 240.95852979435602ms
+MSM time: 8537.070313663322ms
+MuSc: 511.19768166843846ms per image
+computing metrics...
+wood
+image-level, auroc:76.2280701754386, f1:86.76470588235294, ap:91.87522094138934
+pixel-level, auroc:75.45892411429021, f1:27.841468012903768, ap:21.53799239929814, aupro:32.31706722781244
+visualization...
+zipper
+subset_num: 151
+extract time: 33.58739101334123ms per image
+feature extract only backbone time: 3.777622387109213ms per image
+LNAMD time: 257.01934948336776ms
+MSM time: 9352.617519417785ms
+MuSc: 868.1162682590106ms per image
+computing metrics...
+zipper
+image-level, auroc:78.07247899159664, f1:88.80308880308881, ap:93.40946955424108
+pixel-level, auroc:92.4771421537938, f1:33.43163996818602, ap:27.259291138219822, aupro:75.31024793110844
+visualization...
+bottle
+image-level, auroc:77.38095238095238, f1:88.1118881118881, ap:90.8065382630835
+pixel-level, auroc:84.74148970730843, f1:38.20107234956963, ap:36.139878137673556, aupro:56.84928876290031
+cable
+image-level, auroc:71.51424287856072, f1:79.81220657276995, ap:77.41140034029442
+pixel-level, auroc:45.43365645524035, f1:6.5286376882324415, ap:3.0574878879200953, aupro:33.03515882212317
+capsule
+image-level, auroc:62.544874351814926, f1:90.45643153526972, ap:87.19514120151295
+pixel-level, auroc:89.9498415812911, f1:33.06923054096561, ap:22.11060968815417, aupro:77.23212905918516
+carpet
+image-level, auroc:41.53290529695024, f1:86.40776699029125, ap:75.24806757345277
+pixel-level, auroc:81.97385660522755, f1:21.125664956209093, ap:18.145235467346172, aupro:41.10382932260412
+grid
+image-level, auroc:45.4469507101086, f1:84.44444444444443, ap:73.57731004721578
+pixel-level, auroc:75.80960537340766, f1:7.229984885532173, ap:2.3095844133468413, aupro:33.33362708507033
+hazelnut
+image-level, auroc:85.39285714285714, f1:85.48387096774194, ap:93.3787882554477
+pixel-level, auroc:97.69490394230945, f1:62.42313425979192, ap:64.41528802064089, aupro:62.958500801962316
+leather
+image-level, auroc:82.43885869565217, f1:86.66666666666667, ap:93.80529325905759
+pixel-level, auroc:95.35101240031325, f1:38.0240078658653, ap:27.574826437108584, aupro:70.94499081383604
+metal_nut
+image-level, auroc:56.940371456500486, f1:89.85507246376811, ap:85.31715858987334
+pixel-level, auroc:88.1836382040359, f1:49.33515905657196, ap:44.441439562646075, aupro:62.18840815238617
+pill
+image-level, auroc:73.64975450081832, f1:91.55844155844156, ap:93.86862129292136
+pixel-level, auroc:79.29829341331467, f1:25.161684571190314, ap:20.73563547576031, aupro:62.91411792418518
+screw
+image-level, auroc:14.306210288993649, f1:85.3046594982079, ap:56.95057929081392
+pixel-level, auroc:90.04519518520011, f1:2.917708237901414, ap:1.2012046454271663, aupro:64.36541903584926
+tile
+image-level, auroc:53.35497835497836, f1:84.00000000000001, ap:77.07319928248589
+pixel-level, auroc:62.92628489753872, f1:23.393959242403366, ap:20.697360350235858, aupro:30.762108917594006
+toothbrush
+image-level, auroc:92.77777777777779, f1:93.10344827586206, ap:97.67768742302458
+pixel-level, auroc:89.83534530891937, f1:33.48742236465216, ap:21.721989967063543, aupro:80.02650347956721
+transistor
+image-level, auroc:77.91666666666666, f1:68.96551724137932, ap:70.60446517731835
+pixel-level, auroc:71.12628457595592, f1:34.51227924365145, ap:22.201842037578853, aupro:46.770282765973526
+wood
+image-level, auroc:76.2280701754386, f1:86.76470588235294, ap:91.87522094138934
+pixel-level, auroc:75.45892411429021, f1:27.841468012903768, ap:21.53799239929814, aupro:32.31706722781244
+zipper
+image-level, auroc:78.07247899159664, f1:88.80308880308881, ap:93.40946955424108
+pixel-level, auroc:92.4771421537938, f1:33.43163996818602, ap:27.259291138219822, aupro:75.31024793110844
+mean
+image-level, auroc:65.96652997797779, f1:85.9825472674782, ap:83.87992936614218
+pixel-level, auroc:81.35369826120977, f1:29.112203549575106, ap:23.569977708561336, aupro:55.34077867347717

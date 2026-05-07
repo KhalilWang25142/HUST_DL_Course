@@ -1,0 +1,1 @@
+python ./examples/musc_main.py --config configs/musc.yaml
